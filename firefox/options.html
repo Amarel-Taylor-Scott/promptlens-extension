@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PromptLens Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="10.5" cy="10.5" r="7.5"/>
+        <line x1="16.2" y1="16.2" x2="22" y2="22"/>
+      </svg>
+      <h1>PromptLens Settings</h1>
+    </header>
+
+    <section>
+      <h2>Authentication</h2>
+
+      <label class="radio-card">
+        <input type="radio" name="authMode" value="anonymous" checked>
+        <div>
+          <strong>Anonymous</strong>
+          <span>3 free generations per day. No account needed.</span>
+        </div>
+      </label>
+
+      <label class="radio-card">
+        <input type="radio" name="authMode" value="email">
+        <div>
+          <strong>Email-linked</strong>
+          <span>5 per day. Syncs with your account when you sign up.</span>
+        </div>
+      </label>
+      <div class="sub-field" id="email-field" hidden>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <label class="radio-card">
+        <input type="radio" name="authMode" value="apikey">
+        <div>
+          <strong>API Key</strong>
+          <span>Uses your plan limits. Free = 5/month, Pro = unlimited.</span>
+        </div>
+      </label>
+      <div class="sub-field" id="apikey-field" hidden>
+        <input type="text" id="apiKey" placeholder="pl_..." autocomplete="off" spellcheck="false">
+        <a href="https://promptlens.polsia.app/settings" target="_blank" class="help-link">Get your API key</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Default Models</h2>
+      <p class="hint">Leave all unchecked to generate prompts for every model.</p>
+      <div class="checkbox-grid">
+        <label><input type="checkbox" name="models" value="midjourney"> Midjourney</label>
+        <label><input type="checkbox" name="models" value="dall-e"> DALL-E</label>
+        <label><input type="checkbox" name="models" value="stable-diffusion"> Stable Diffusion</label>
+        <label><input type="checkbox" name="models" value="flux"> Flux</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Behavior</h2>
+      <label class="toggle-row">
+        <input type="checkbox" id="autoOpen" checked>
+        <span>Auto-open results in a new tab</span>
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" id="showToasts" checked>
+        <span>Show on-page notifications</span>
+      </label>
+    </section>
+
+    <footer>
+      <button id="save-btn">Save Settings</button>
+      <span id="save-status" hidden>Saved!</span>
+    </footer>
+
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

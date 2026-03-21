@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PromptLens Icon Generator</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 500px; margin: 60px auto; text-align: center; }
+    h1 { font-size: 20px; color: #1f2937; }
+    p { color: #6b7280; margin: 12px 0 24px; }
+    button { background: #6366f1; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-size: 15px; cursor: pointer; }
+    button:hover { background: #4f46e5; }
+    .previews { display: flex; gap: 20px; justify-content: center; margin-top: 24px; }
+    .previews div { text-align: center; }
+    .previews canvas { border: 1px solid #e5e7eb; border-radius: 6px; }
+    .previews span { display: block; font-size: 12px; color: #9ca3af; margin-top: 4px; }
+    .note { margin-top: 24px; font-size: 13px; color: #9ca3af; }
+  </style>
+</head>
+<body>
+<h1>PromptLens Icon Generator</h1>
+<p>Click to generate and download extension icons.<br>Save them into the <code>icons/</code> folder.</p>
+<button onclick="generateAll()">Generate &amp; Download Icons</button>
+<div class="previews" id="previews"></div>
+<p class="note" id="note" hidden>Icons downloaded! Move them to the <code>icons/</code> folder.</p>
+<script>
+const SIZES = [16, 48, 128];
+function drawIcon(size) {
+  const c = document.createElement('canvas');
+  c.width = size; c.height = size;
+  const ctx = c.getContext('2d');
+  const r = size * 0.18;
+  ctx.beginPath(); ctx.roundRect(0, 0, size, size, r);
+  ctx.fillStyle = '#6366f1'; ctx.fill();
+  const cx = size * 0.42, cy = size * 0.40, radius = size * 0.24;
+  ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  ctx.strokeStyle = '#ffffff'; ctx.lineWidth = Math.max(1.5, size * 0.08); ctx.stroke();
+  const angle = Math.PI * 0.25;
+  ctx.beginPath();
+  ctx.moveTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+  ctx.lineTo(cx + Math.cos(angle) * (radius + size * 0.22), cy + Math.sin(angle) * (radius + size * 0.22));
+  ctx.lineWidth = Math.max(2, size * 0.10); ctx.lineCap = 'round'; ctx.stroke();
+  return c;
+}
+function generateAll() {
+  const previews = document.getElementById('previews');
+  previews.innerHTML = '';
+  SIZES.forEach((size) => {
+    const canvas = drawIcon(size);
+    const a = document.createElement('a');
+    a.href = canvas.toDataURL('image/png'); a.download = `icon${size}.png`; a.click();
+    const div = document.createElement('div');
+    div.appendChild(canvas);
+    const span = document.createElement('span');
+    span.textContent = `${size}\u00d7${size}`;
+    div.appendChild(span); previews.appendChild(div);
+  });
+  document.getElementById('note').hidden = false;
+}
+</script>
+</body>
+</html>
