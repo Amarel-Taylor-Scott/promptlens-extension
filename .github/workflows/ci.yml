@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - name: Validate all extension manifests
+        run: node scripts/validate-manifests.mjs
+      - name: web-ext lint (Chrome MV3, non-blocking)
+        run: npx --yes web-ext lint --source-dir=chrome --self-hosted || true
+      - name: web-ext lint (Firefox MV2, non-blocking)
+        run: npx --yes web-ext lint --source-dir=firefox --self-hosted || true

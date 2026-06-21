@@ -1,5 +1,9 @@
 # PromptLens Browser Extension
 
+[![CI](https://github.com/Amarel-Taylor-Scott/promptlens-extension/actions/workflows/ci.yml/badge.svg)](https://github.com/Amarel-Taylor-Scott/promptlens-extension/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Manifest V3 + V2](https://img.shields.io/badge/manifest-V3%20%2B%20V2-blue.svg)](#)
+
 Right-click any AI-generated image on the web to instantly reverse-engineer its prompt. Works with Midjourney, DALL-E, Stable Diffusion, Flux, and more.
 
 **[PromptLens Website](https://promptlens.polsia.app)** | **[Chrome Web Store](#)** | **[Firefox Add-ons](#)**
@@ -113,14 +117,37 @@ Get your API key at [promptlens.polsia.app/settings](https://promptlens.polsia.a
 │   ├── options.html/js/css   Settings page
 │   └── icons/                Extension icons
 │
+├── uwu-ize/                # Sibling extension "Uwu-ize" (Manifest V3)
+├── uwu-mode/               # Sibling extension "Uwu Mode" (Manifest V3)
+│
 ├── releases/               # Packaged extensions ready to install
 │   ├── promptlens-chrome-v1.0.0.zip
 │   ├── promptlens-firefox-v1.0.0.zip
 │   └── promptlens-firefox-v1.0.0.xpi
 │
+├── scripts/
+│   └── validate-manifests.mjs   # CI manifest validator (no deps)
 ├── privacy-policy.html     # Extension privacy policy
 ├── chrome-listing.md       # Chrome Web Store listing copy
 └── firefox-listing.md      # Firefox Add-ons listing copy
+```
+
+### Sibling extensions
+
+Alongside PromptLens, this repo also contains two small standalone extensions
+(load-unpacked the same way as above):
+
+- **`uwu-ize/`** — *Uwu-ize* (MV3): right-click selected text to uwu-ify it.
+- **`uwu-mode/`** — *Uwu Mode* (MV3): toggle uwu-ification for a page.
+
+## Develop
+
+No build step — these are plain HTML/JS/CSS extensions. Load any extension
+directory unpacked (see **Install → Manual**). Before committing, validate every
+manifest (also run in CI):
+
+```bash
+node scripts/validate-manifests.mjs
 ```
 
 ## How It Works (Technical)
