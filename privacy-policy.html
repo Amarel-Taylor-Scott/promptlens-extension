@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PromptLens Browser Extension — Privacy Policy</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #1f2937; line-height: 1.7; }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    h2 { font-size: 18px; margin-top: 32px; }
+    .updated { color: #6b7280; font-size: 14px; margin-bottom: 32px; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    a { color: #6366f1; }
+    .contact { margin-top: 40px; padding: 20px; background: #f9fafb; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+<h1>PromptLens Browser Extension — Privacy Policy</h1>
+<p class="updated">Last updated: March 20, 2026</p>
+
+<p>This privacy policy explains how the PromptLens browser extension ("the Extension") collects, uses, and protects your information.</p>
+
+<h2>What We Collect</h2>
+
+<p><strong>Image data you choose to analyze.</strong> When you right-click an image and select "Generate Prompt with PromptLens," the Extension sends that specific image to PromptLens servers for analysis. We only process images you explicitly choose to analyze — we never scan, collect, or access any other images or content on pages you visit.</p>
+
+<p><strong>Extension settings.</strong> Your preferences (authentication mode, default model selection, behavior toggles) are stored locally in your browser using the browser's built-in storage API and synced across your devices if you use browser sync. These settings never leave your browser except through your browser's own sync mechanism.</p>
+
+<p><strong>Generation history.</strong> A list of your recent analyses (share IDs, timestamps, and source page URLs) is stored locally in your browser. This data is never transmitted to our servers.</p>
+
+<h2>What We Do NOT Collect</h2>
+<ul>
+  <li>We do not collect your browsing history</li>
+  <li>We do not track which websites you visit</li>
+  <li>We do not collect personal information unless you voluntarily provide an email address in the Extension settings</li>
+  <li>We do not inject ads, trackers, or analytics scripts into web pages</li>
+  <li>We do not sell, share, or rent any user data to third parties</li>
+  <li>We do not access any images on a page unless you explicitly right-click and choose to analyze one</li>
+</ul>
+
+<h2>How Images Are Processed</h2>
+<p>When you analyze an image:</p>
+<ol>
+  <li>The Extension fetches the image and sends it to <code>promptlens.polsia.app</code> via a secure HTTPS connection</li>
+  <li>Our server processes the image using AI models to generate prompts</li>
+  <li>The generated prompts are stored and displayed on a results page</li>
+  <li>Uploaded images are processed temporarily and are not retained permanently on our servers</li>
+</ol>
+
+<h2>Authentication</h2>
+<p>The Extension supports three modes:</p>
+<ul>
+  <li><strong>Anonymous:</strong> No personal information is collected. Rate-limited to 3 generations per day.</li>
+  <li><strong>Email-linked:</strong> If you provide an email address, it is sent to our server to associate your generations with an account. This email is stored on our servers per our <a href="https://promptlens.polsia.app/privacy">web app privacy policy</a>.</li>
+  <li><strong>API Key:</strong> If you provide an API key, it is stored locally in your browser and sent as an authorization header with each request. API keys are generated from your account at promptlens.polsia.app.</li>
+</ul>
+
+<h2>Permissions</h2>
+<p>The Extension requests the following browser permissions:</p>
+<ul>
+  <li><strong>contextMenus:</strong> To add the "Generate Prompt with PromptLens" option to the right-click menu on images</li>
+  <li><strong>storage:</strong> To save your settings and generation history locally in your browser</li>
+  <li><strong>notifications:</strong> To show a notification if the on-page toast cannot be displayed (e.g., on restricted browser pages)</li>
+  <li><strong>activeTab:</strong> To inject a small toast notification on the current page showing generation progress</li>
+  <li><strong>Access to all websites:</strong> Required to fetch images from any website when you right-click them for analysis. The Extension only accesses a website's content when you explicitly trigger an analysis.</li>
+</ul>
+
+<h2>Data Security</h2>
+<p>All communication between the Extension and PromptLens servers uses HTTPS encryption. Your settings and history are stored using your browser's secure storage API.</p>
+
+<h2>Changes to This Policy</h2>
+<p>We may update this privacy policy from time to time. Changes will be reflected in the "Last updated" date above.</p>
+
+<div class="contact">
+  <h2 style="margin-top: 0;">Contact</h2>
+  <p>If you have questions about this privacy policy, contact us at:</p>
+  <p><a href="https://promptlens.polsia.app/contact">promptlens.polsia.app/contact</a></p>
+</div>
+
+</body>
+</html>

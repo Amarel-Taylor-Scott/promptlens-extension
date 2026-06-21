@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Uwu-ize",
+  "description": "Right-click any image to uwu-ize it and get kawaii prompts OwO",
+  "version": "1.0.0",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://promptlens.polsia.app/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Uwu-ize"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["result.html", "result.js", "result.css"],
+    "matches": ["<all_urls>"]
+  }]
+}
