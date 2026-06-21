@@ -1,0 +1,41 @@
+name: Bug report
+description: Report a problem so it can be fixed
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Please do **not** include API keys or
+        credentials. For security issues, see SECURITY.md instead.
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser / extension
+      options:
+        - Chrome / Edge / Brave (PromptLens)
+        - Firefox (PromptLens)
+        - Uwu-ize
+        - Uwu Mode
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps, including the kind of page/image if relevant.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: From the manifest / extensions page.
+    validations:
+      required: false

@@ -183,9 +183,17 @@ node scripts/validate-manifests.mjs
 
 3 generations per day with no account. Link your email for 5/day, or sign up at [promptlens.polsia.app](https://promptlens.polsia.app) for Pro access with unlimited generations.
 
+## Contributing
+
+Contributions are welcome! These are plain HTML/JS/CSS extensions with no build
+step — see [CONTRIBUTING.md](CONTRIBUTING.md) for load-unpacked development, the
+manifest validator, and the PR process, and note our
+[Code of Conduct](CODE_OF_CONDUCT.md). Report security issues privately per
+[SECURITY.md](SECURITY.md). Release history is in [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
-MIT
+[MIT](LICENSE) © Amarel Taylor Scott
 
 ## Links
 
